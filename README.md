@@ -69,14 +69,15 @@ ReactGA.event({
 
 #### ReactGA.initialize(GA_MEASUREMENT_ID, options)
 
-| Parameter           | Notes                                                                                                                   |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| GA_MEASUREMENT_ID   | `string` Required                                                                                                       |
-| options.nonce       | `string` Optional Used for Content Security Policy (CSP) [more](https://developers.google.com/tag-manager/web/csp)      |
-| options.testMode    | `boolean` Default false                                                                                                 |
-| options.gtagUrl     | `string` Default `https://www.googletagmanager.com/gtag/js`                                                             |
-| options.gaOptions   | `object` Optional [Reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference) |
-| options.gtagOptions | `object` Optional                                                                                                       |
+| Parameter            | Notes                                                                                                                  |
+|----------------------|------------------------------------------------------------------------------------------------------------------------|
+| GA_MEASUREMENT_ID    | `string` Required                                                                                                      |
+| options.nonce        | `string` Optional Used for Content Security Policy (CSP) [more](https://developers.google.com/tag-manager/web/csp)     |
+| options.testMode     | `boolean` Default false                                                                                                |
+| options.formatEvents | `boolean` Default true <br/> Add title case and email redaction to events                                              |
+| options.gtagUrl      | `string` Default `https://www.googletagmanager.com/gtag/js`                                                            |
+| options.gaOptions    | `object` Optional [Reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference) |
+| options.gtagOptions  | `object` Optional                                                                                                      |
 
 #### ReactGA.set(fieldsObject)
 

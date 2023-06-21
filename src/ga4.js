@@ -56,6 +56,7 @@ export class GA4 {
     this.isInitialized = false;
 
     this._testMode = false;
+    this._formatEvents = true;
     this._currentMeasurementId;
     this._hasLoadedGA = false;
     this._isQueuing = false;
@@ -157,6 +158,7 @@ export class GA4 {
    * @param {Object} [options]
    * @param {string} [options.nonce]
    * @param {boolean} [options.testMode=false]
+   * @param {boolean} [options.formatEvents=false]
    * @param {string} [options.gtagUrl=https://www.googletagmanager.com/gtag/js]
    * @param {GaOptions|any} [options.gaOptions]
    * @param {Object} [options.gtagOptions] New parameter
@@ -177,9 +179,11 @@ export class GA4 {
       gtagOptions,
       nonce,
       testMode = false,
+      formatEvents = false,
       gtagUrl,
     } = options;
     this._testMode = testMode;
+    this._formatEvents = formatEvents;
 
     if (!testMode) {
       this._loadGA(this._currentMeasurementId, nonce, gtagUrl);
@@ -414,16 +418,18 @@ export class GA4 {
         return;
       }
 
+      const _format = (s) => format(s, this._formatEvents, this._formatEvents);
+
       // Required Fields
       const fieldObject = {
         hitType: "event",
-        eventCategory: format(category),
-        eventAction: format(action),
+        eventCategory: _format(category),
+        eventAction: _format(action),
       };
 
       // Optional Fields
       if (label) {
-        fieldObject.eventLabel = format(label);
+        fieldObject.eventLabel = _format(label);
       }
 
       if (typeof value !== "undefined") {
