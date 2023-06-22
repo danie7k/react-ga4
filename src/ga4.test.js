@@ -254,6 +254,31 @@ describe("GA4", () => {
         non_interaction: true,
       });
     });
+
+    it("event() without formatting", () => {
+      // Given
+      const options = {
+        formatEvents: false,
+      };
+      const object = {
+        category: "category value",
+        action: "action value",
+        label: "label value",
+      };
+
+      // When
+      GA4.initialize(GA_MEASUREMENT_ID, options);
+      GA4.event(object);
+
+      // Then
+      expect(gtag).toHaveBeenNthCalledWith(1, "js", newDate);
+      expect(gtag).toHaveBeenNthCalledWith(2, "config", GA_MEASUREMENT_ID);
+      expect(gtag).toHaveBeenNthCalledWith(3, "event", "action value", {
+        event_category: "category value",
+        event_label: "label value",
+      });
+      expect(gtag).toHaveBeenCalledTimes(3);
+    });
   });
 
   describe("GA4.set()", () => {

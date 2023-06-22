@@ -158,7 +158,7 @@ export class GA4 {
    * @param {Object} [options]
    * @param {string} [options.nonce]
    * @param {boolean} [options.testMode=false]
-   * @param {boolean} [options.formatEvents=false]
+   * @param {boolean} [options.formatEvents=true]
    * @param {string} [options.gtagUrl=https://www.googletagmanager.com/gtag/js]
    * @param {GaOptions|any} [options.gaOptions]
    * @param {Object} [options.gtagOptions] New parameter
