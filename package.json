@@ -1,6 +1,6 @@
 {
   "name": "react-ga4-pro",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "React Google Analytics 4 (with formatEvents option that allows disabling the default event formatting)",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
